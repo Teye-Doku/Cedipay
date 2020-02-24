@@ -41,6 +41,7 @@ class _HomeState extends State<Home> {
         bucket: bucket
       ),
 
+      // Material design style
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.shopping_basket),
         backgroundColor: Colors.redAccent,
@@ -55,7 +56,59 @@ class _HomeState extends State<Home> {
       ),
 
 
+      // float with border and icon
+      // floatingActionButton: FloatingActionButton(
+      //   child: Icon(Icons.shopping_basket, color: Colors.redAccent),
+        
+      //   shape: CircleBorder(
+          
+      //     side: BorderSide(color: Colors.pink, width: 4.0),
+      //   ),
+      //   backgroundColor: Colors.white,
+      //   onPressed: () {
+      //     setState((){
+      //                 currentScreen =ScanPay();
+      //                 currentTab = 2;
+
+      //               },);
+
+      //   },
+      // ),
+
+
+      // floatingActionButton: Transform.scale(scale: 1.5,
+      // child: FloatingActionButton.extended(
+
+      //   label: Text("Pay", style: TextStyle(
+      //     fontFamily : "Montserrat",
+      //     color : Colors.redAccent,
+      //     fontWeight: FontWeight.bold,
+      //   )),
+
+       
+        
+        
+      //   shape: CircleBorder(
+          
+      //     side: BorderSide(color: Colors.pink, width: 4.0),
+      //   ),
+      //   backgroundColor: Colors.white,
+      //   onPressed: () {
+      //     setState((){
+      //                 currentScreen =ScanPay();
+      //                 currentTab = 2;
+
+      //               },);
+
+      //   },
+      // ),
+      // ),
+
+      
+
+
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+       
       
       bottomNavigationBar: BottomAppBar(
         
