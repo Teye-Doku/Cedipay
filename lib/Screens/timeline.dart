@@ -1,3 +1,4 @@
+import 'package:cedipay/Screens/activities.dart';
 import 'package:cedipay/widgets/exclusive_carousel.dart';
 import 'package:cedipay/widgets/merchants_carousel.dart';
 import 'package:flutter_icons/flutter_icons.dart';
@@ -20,6 +21,7 @@ class _TimelineState extends State<Timeline> {
     
    
     return Scaffold(
+
       
 
       body: (
@@ -47,26 +49,33 @@ class _TimelineState extends State<Timeline> {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 12, left:15),
-                child: Container(
-                  
-                  margin: EdgeInsets.only(right: 10),
-                  width: 45,
-                  height: 45,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30.0),
-                      color: Colors.white,
-                    image:DecorationImage (
-                     image: AssetImage('assets/prof2.jpg'),
-                      fit: BoxFit.cover),
-                      boxShadow: [
-                      BoxShadow(
-                      blurRadius: 6.0,
-                      color: Colors.redAccent.withOpacity(0.2),
-                      spreadRadius: 5.0)
-                  ]
-                      
-                    )
-                  ),
+                child: GestureDetector(
+                  onTap: (()=> {
+                    Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Activities()),
+                  )}),
+                    child: Container(
+                    
+                    margin: EdgeInsets.only(right: 10),
+                    width: 45,
+                    height: 45,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30.0),
+                        color: Colors.white,
+                      image:DecorationImage (
+                       image: AssetImage('assets/prof2.jpg'),
+                        fit: BoxFit.cover),
+                        boxShadow: [
+                        BoxShadow(
+                        blurRadius: 6.0,
+                        color: Colors.redAccent.withOpacity(0.2),
+                        spreadRadius: 5.0)
+                    ]
+                        
+                      )
+                    ),
+                ),
 
                 ),
 
