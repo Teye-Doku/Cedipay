@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
 
+import 'Screens/AuthScreen/Login/login.dart';
 import 'Screens/home.dart';
 
 void main() => runApp(MyApp());
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    FlutterStatusbarcolor.setStatusBarColor(Colors.redAccent);
+    FlutterStatusbarcolor.setStatusBarColor(Color(0xEE4E55));
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
@@ -20,7 +21,9 @@ class MyApp extends StatelessWidget {
         
         primarySwatch: Colors.red,
       ),
-      home:Home(),
+
+      // changed home() to loginScreen()
+      home:LoginScreen(),
     );
   }
 }
