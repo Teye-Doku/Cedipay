@@ -6,6 +6,45 @@ class Activities extends StatefulWidget {
 }
 
 class _ActivitiesState extends State<Activities> {
+
+  void _showDialog() {
+    // flutter defined function
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        // return object of type Dialog
+        return AlertDialog(
+          title: new Text("Star Earn :)", style : TextStyle(
+            fontFamily: "Montserrat", 
+            fontWeight: FontWeight.bold, 
+            
+
+          ),
+          ),
+          content: new Text("Earn 8.0% interest per anum on daily Bases And withdraw by end of every month", style : TextStyle(
+            fontFamily: "Futura", 
+            fontWeight: FontWeight.w400, 
+            fontSize: 15,
+            
+
+          ),
+          ),
+          actions: <Widget>[
+            // usually buttons at the bottom of the dialog
+            new FlatButton(
+              child: new Text("Close", style : TextStyle(
+                fontFamily : "Futura", 
+                fontWeight : FontWeight.bold
+              )),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +57,7 @@ class _ActivitiesState extends State<Activities> {
               padding: EdgeInsets.only(top: 20),
               width : MediaQuery.of(context).size.width,
               height : MediaQuery.of(context).size.height ,
-              color: Colors.redAccent,
+              // color: Colors.redAccent,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -147,7 +186,13 @@ class _ActivitiesState extends State<Activities> {
                       ),
                       Padding(
                         padding: EdgeInsets.only(right: 20),
-                        child: Icon(Icons.error_outline, color: Colors.white, size: 15),
+                        child: GestureDetector(
+                          child: Icon(Icons.error_outline, color: Colors.white, size: 15),
+                          onTap: () {
+                            _showDialog();
+                            
+                          },
+                        ),
                       )
                     ]
                   ),
@@ -160,13 +205,13 @@ class _ActivitiesState extends State<Activities> {
 
                   ],
               ),
-              // decoration: BoxDecoration(
-              //   color : Colors.white,
-              //   image : DecorationImage(
-              //     image: AssetImage('assets/images/vector.jpg'),
-              //     fit: BoxFit.cover),
+              decoration: BoxDecoration(
+                color : Colors.white,
+                image : DecorationImage(
+                  image: AssetImage('assets/images/vector.jpg'),
+                  fit: BoxFit.cover),
 
-              //   )
+                )
            
 
               ),
@@ -198,7 +243,7 @@ class _ActivitiesState extends State<Activities> {
                      width: MediaQuery.of(context).size.width ,
                      height: 1,
                      margin: EdgeInsets.all(10),
-                     color: Colors.grey[300] 
+                     color: Colors.grey[200] 
 
                    ), 
 
@@ -215,31 +260,31 @@ class _ActivitiesState extends State<Activities> {
 
                             Container(
                          alignment: Alignment.center,
-                         width : 40, 
-                         height: 40,
+                         width : 10, 
+                         height: 10,
                          decoration : BoxDecoration(
-                           color : Color(0xFFEDFEE5), 
-                           borderRadius : BorderRadius.all(Radius.circular(20))
+                           color : Colors.redAccent, 
+                           borderRadius : BorderRadius.all(Radius.circular(5))
 
                          ), 
                          child: Text(
-                           "0.05%", style : TextStyle(
-                             color: Color(0xFF5CB238), 
+                           "", style : TextStyle(
+                             color: Colors.white, 
                              fontFamily: 'Montserrat', 
                              fontWeight: FontWeight.bold, 
-                             fontSize : 13
+                             fontSize : 10
                            )
                          ),
                        ),
 
                        Padding(
-                         padding: EdgeInsets.only(left: 8.0),
+                         padding: EdgeInsets.only(left: 15.0),
                          child: Column(
                            children: <Widget> [
                              Text("0.0200", style: TextStyle(
-                               color: Color(0xFF5CB238), 
+                               color: Colors.redAccent, 
                                fontFamily: 'Montserrat', 
-                               fontSize: 16, 
+                               fontSize: 18, 
                                fontWeight: FontWeight.bold
                              ),),
                              Text("21 Jan, 2019", style : TextStyle(
@@ -259,6 +304,7 @@ class _ActivitiesState extends State<Activities> {
                        Text("GHS 5200.00", style: TextStyle(
                          fontFamily: 'Montserrat', 
                          fontWeight: FontWeight.w600, 
+                         color: Colors.black
 
                        ),
                        ),
@@ -284,31 +330,32 @@ class _ActivitiesState extends State<Activities> {
                            children: <Widget> [
                               Container(
                          alignment: Alignment.center,
-                         width : 40, 
-                         height: 40,
+                         width : 10, 
+                         height: 10,
                          decoration : BoxDecoration(
-                           color : Color(0xFFEDFEE5), 
-                           borderRadius : BorderRadius.all(Radius.circular(20))
+                           color : Colors.redAccent, 
+                           borderRadius : BorderRadius.all(Radius.circular(5))
 
                          ), 
                          child: Text(
-                           "0.05%", style : TextStyle(
-                             color: Color(0xFF5CB238), 
+                           "", style : TextStyle(
+                             color: Colors.white, 
                              fontFamily: 'Montserrat', 
                              fontWeight: FontWeight.bold, 
-                             fontSize : 13
+                             fontSize : 10
                            )
                          ),
                        ),
 
+
                        Padding(
-                         padding: EdgeInsets.only(left: 10),
+                         padding: EdgeInsets.only(left: 15),
                          child: Column(
                            children: <Widget> [
                              Text("0.0256", style: TextStyle(
-                               color: Color(0xFF5CB238), 
+                               color: Colors.redAccent, 
                                fontFamily: 'Montserrat', 
-                               fontSize: 16, 
+                               fontSize: 18, 
                                fontWeight: FontWeight.bold
                              ),),
                              Text("29 Jan, 2019", style : TextStyle(
@@ -328,6 +375,7 @@ class _ActivitiesState extends State<Activities> {
                        Text("GHS 6100.00", style: TextStyle(
                          fontFamily: 'Montserrat', 
                          fontWeight: FontWeight.w600, 
+                         color: Colors.black
 
                        ),
                        ),
@@ -354,31 +402,32 @@ class _ActivitiesState extends State<Activities> {
                            children: <Widget> [
                               Container(
                          alignment: Alignment.center,
-                         width : 40, 
-                         height: 40,
+                         width : 10, 
+                         height: 10,
                          decoration : BoxDecoration(
-                           color : Color(0xFFEDFEE5), 
-                           borderRadius : BorderRadius.all(Radius.circular(20))
+                           color : Colors.redAccent, 
+                           borderRadius : BorderRadius.all(Radius.circular(5))
 
                          ), 
                          child: Text(
-                           "0.04%", style : TextStyle(
-                             color: Color(0xFF5CB238), 
+                           "", style : TextStyle(
+                             color: Colors.white, 
                              fontFamily: 'Montserrat', 
                              fontWeight: FontWeight.bold, 
-                             fontSize : 13
+                             fontSize : 10
                            )
                          ),
                        ),
 
+
                        Padding(
-                         padding: EdgeInsets.only(left: 10),
+                         padding: EdgeInsets.only(left: 15),
                          child: Column(
                            children: <Widget> [
                              Text("0.00124", style: TextStyle(
-                               color: Color(0xFF5CB238), 
+                               color: Colors.redAccent, 
                                fontFamily: 'Montserrat', 
-                               fontSize: 16, 
+                               fontSize: 18, 
                                fontWeight: FontWeight.bold
                              ),),
                              Text("02 Feb, 2019", style : TextStyle(
@@ -395,6 +444,7 @@ class _ActivitiesState extends State<Activities> {
                        Text("GHS 300.00", style: TextStyle(
                          fontFamily: 'Montserrat', 
                          fontWeight: FontWeight.w600, 
+                         color : Colors.black
 
                        ),
                        ),
@@ -422,31 +472,32 @@ class _ActivitiesState extends State<Activities> {
                            children: <Widget> [
                               Container(
                          alignment: Alignment.center,
-                         width : 40, 
-                         height: 40,
+                         width : 10, 
+                         height: 10,
                          decoration : BoxDecoration(
-                           color : Color(0xFFEDFEE5), 
-                           borderRadius : BorderRadius.all(Radius.circular(20))
+                           color : Colors.redAccent, 
+                           borderRadius : BorderRadius.all(Radius.circular(5))
 
                          ), 
                          child: Text(
-                           "0.05%", style : TextStyle(
-                             color: Color(0xFF5CB238), 
+                           "", style : TextStyle(
+                             color: Colors.white, 
                              fontFamily: 'Montserrat', 
                              fontWeight: FontWeight.bold, 
-                             fontSize : 13
+                             fontSize : 10
                            )
                          ),
                        ),
 
+
                        Padding(
-                         padding: EdgeInsets.only(left: 10),
+                         padding: EdgeInsets.only(left: 15),
                          child: Column(
                            children: <Widget> [
                              Text("0.0256", style: TextStyle(
-                               color: Color(0xFF5CB238), 
+                               color: Colors.redAccent, 
                                fontFamily: 'Montserrat', 
-                               fontSize: 16, 
+                               fontSize: 18, 
                                fontWeight: FontWeight.bold
                              ),),
                              Text("29 Jan, 2019", style : TextStyle(
@@ -462,6 +513,7 @@ class _ActivitiesState extends State<Activities> {
                        Text("GHS 5000.00", style: TextStyle(
                          fontFamily: 'Montserrat', 
                          fontWeight: FontWeight.w600, 
+                         color: Colors.black
 
                        ),
                        ),
@@ -488,31 +540,32 @@ class _ActivitiesState extends State<Activities> {
                            children: <Widget> [
                               Container(
                          alignment: Alignment.center,
-                         width : 40, 
-                         height: 40,
+                         width : 10, 
+                         height: 10,
                          decoration : BoxDecoration(
-                           color : Color(0xFFEDFEE5), 
-                           borderRadius : BorderRadius.all(Radius.circular(20))
+                           color : Colors.redAccent, 
+                           borderRadius : BorderRadius.all(Radius.circular(5))
 
                          ), 
                          child: Text(
-                           "0.05%", style : TextStyle(
-                             color: Color(0xFF5CB238), 
+                           "", style : TextStyle(
+                             color: Colors.white, 
                              fontFamily: 'Montserrat', 
                              fontWeight: FontWeight.bold, 
-                             fontSize : 13
+                             fontSize : 10
                            )
                          ),
                        ),
 
+
                        Padding(
-                         padding: EdgeInsets.only(left: 10),
+                         padding: EdgeInsets.only(left: 15),
                          child: Column(
                            children: <Widget> [
                              Text("0.0256", style: TextStyle(
-                               color: Color(0xFF5CB238), 
+                               color: Colors.redAccent, 
                                fontFamily: 'Montserrat', 
-                               fontSize: 16, 
+                               fontSize: 18, 
                                fontWeight: FontWeight.bold
                              ),),
                              Text("29 Jan, 2019", style : TextStyle(
@@ -529,19 +582,92 @@ class _ActivitiesState extends State<Activities> {
                        Text("GHS 5000.00", style: TextStyle(
                          fontFamily: 'Montserrat', 
                          fontWeight: FontWeight.w600, 
+                         color: Colors.black
 
                        ),
                        ),
                      ],),
                    ), 
 
-                  //  Container(
-                  //    width: MediaQuery.of(context).size.width ,
-                  //    height: 1,
-                  //    margin: EdgeInsets.all(10),
-                  //    color: Colors.grey[300] 
+                   Container(
+                     width: MediaQuery.of(context).size.width ,
+                     height: 1,
+                     margin: EdgeInsets.all(10),
+                     color: Colors.grey[200] 
 
-                  //  ), 
+                   ), 
+
+
+                   Padding(
+                     padding:EdgeInsets.only(left : 10, right: 10, bottom: 10),
+                     child: Row(
+                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                       
+                       children: <Widget>[
+
+                         Row(
+                           children: <Widget> [
+                              Container(
+                         alignment: Alignment.center,
+                         width : 10, 
+                         height: 10,
+                         decoration : BoxDecoration(
+                           color : Colors.redAccent, 
+                           borderRadius : BorderRadius.all(Radius.circular(5))
+
+                         ), 
+                         child: Text(
+                           "", style : TextStyle(
+                             color: Colors.white, 
+                             fontFamily: 'Montserrat', 
+                             fontWeight: FontWeight.bold, 
+                             fontSize : 10
+                           )
+                         ),
+                       ),
+
+
+                       Padding(
+                         padding: EdgeInsets.only(left: 15),
+                         child: Column(
+                           children: <Widget> [
+                             Text("0.0256", style: TextStyle(
+                               color: Colors.redAccent, 
+                               fontFamily: 'Montserrat', 
+                               fontSize: 18, 
+                               fontWeight: FontWeight.bold
+                             ),),
+                             Text("29 Jan, 2019", style : TextStyle(
+                               fontFamily : 'Montserrat',
+                               fontSize: 13, 
+
+                             ))
+                           ]
+                         ),
+                       ), 
+                           ]
+                         ),
+                       
+                      
+                       
+
+                       Text("GHS 6100.00", style: TextStyle(
+                         fontFamily: 'Montserrat', 
+                         fontWeight: FontWeight.w600, 
+                         color: Colors.black
+
+                       ),
+                       ),
+                     ],),
+                   ), 
+
+                   Container(
+                     width: MediaQuery.of(context).size.width ,
+                     height: 1,
+                     margin: EdgeInsets.all(10),
+                     color: Colors.grey[200] 
+
+                   ), 
 
                    
                  ]
