@@ -1,3 +1,4 @@
+import 'package:cedipay/Screens/AuthScreen/SignUp/Addcreds.dart';
 import 'package:flutter/material.dart';
 
 import 'package:pin_view/pin_view.dart';
@@ -84,12 +85,14 @@ class _LoginVerifyState extends State<LoginVerify> {
             padding: EdgeInsets.only(top: 35, left: 15),
            
               
-              child: FlatButton(
-                onPressed: () => {
-                  
-                },
-                child: Icon(Icons.arrow_back_ios, color: Colors.white,)
-                ),
+             
+                child: GestureDetector(
+                  onTap: () => {
+
+                  },
+                  child: Icon(Icons.arrow_back_ios, color: Colors.white,)
+                  )
+               
               
           ),
 
@@ -193,25 +196,34 @@ class _LoginVerifyState extends State<LoginVerify> {
             
                   Padding(
                     padding: const EdgeInsets.only(top: 20),
-                    child: Container(
-                        alignment: Alignment.center,
-                        width : 180, 
-                        height: 45, 
-                        
-                        decoration: BoxDecoration(
-                          borderRadius : BorderRadius.all(Radius.circular(22.5)),
-                          color : Colors.redAccent,
-                        ),
+                    child: GestureDetector(
 
-                        child: Text("Verify", style : TextStyle(
-                          color : Colors.white, 
-                          fontFamily: "Montserrat", 
-                          fontWeight: FontWeight.bold, 
-                          fontSize: 16, 
-                          letterSpacing: 0
-                        )),
-                        
-                      ),
+                      onTap:(() => {
+                        Navigator.push(
+                            context,
+                          // you change it to OTP() view for IOS version
+                          MaterialPageRoute(builder: (context) => AddCreds()),
+                  )}),
+                      child: Container(
+                                     alignment: Alignment.center,
+                          width : 180, 
+                          height: 45, 
+                          
+                          decoration: BoxDecoration(
+                            borderRadius : BorderRadius.all(Radius.circular(22.5)),
+                            color : Colors.redAccent,
+                          ),
+
+                          child: Text("Verify", style : TextStyle(
+                            color : Colors.white, 
+                            fontFamily: "Montserrat", 
+                            fontWeight: FontWeight.bold, 
+                            fontSize: 16, 
+                            letterSpacing: 0
+                          )),
+                          
+                        ),
+                    ),
                   ),
 
                   Padding(
