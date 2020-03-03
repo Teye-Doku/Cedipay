@@ -7,6 +7,32 @@ class AddCreds extends StatefulWidget {
 }
 
 class _AddCredsState extends State<AddCreds> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _conf_passController = TextEditingController();
+
+  final _formKey = GlobalKey<FormState>();
+
+  void _performLogin() {
+      String email = _emailController.text; 
+      String password = _passwordController.text;
+
+      print('login attempt: $email with $password');
+
+      if (_formKey.currentState.validate()) {
+                  // If the form is valid, display a Snackbar.
+                  // Scaffold.of(context)
+                  //     .showSnackBar(SnackBar(content: Text('Processing Data')));
+                      Navigator.push(
+              context,
+              // you change it to OTP() view for IOS version
+              MaterialPageRoute(builder: (context) => AddInfo()),
+                  );
+                }
+
+    }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +81,7 @@ class _AddCredsState extends State<AddCreds> {
                     children: <Widget>[
                       Text("Kindly fill in your information", style: TextStyle(
                     color: Colors.white, 
-                    fontFamily: "Montserrat", 
+                    fontFamily: "Raleway", 
                     
 
                   ),
@@ -68,7 +94,7 @@ class _AddCredsState extends State<AddCreds> {
                     children: <Widget>[
                       Text("to move to the next step", style: TextStyle(
                     color: Colors.white, 
-                    fontFamily: "Montserrat", 
+                    fontFamily: "Raleway", 
 
                   ),)
                     ]
@@ -92,7 +118,9 @@ class _AddCredsState extends State<AddCreds> {
 
               ),
 
-              child:Column(
+              child: Form(
+                key: _formKey,
+                child: Column(
 
                 children: <Widget>[
 
@@ -102,12 +130,21 @@ class _AddCredsState extends State<AddCreds> {
                    child: Container(
               width: 320,
               padding: EdgeInsets.all(2.0),
-              child: TextField(
+              child: TextFormField(
+
+                controller: _emailController,
+
+                 validator: (value) {
+              if (value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
               autocorrect: true,
               decoration: InputDecoration(
                 hintText: 'Email',
                 prefixIcon: Icon(Icons.email),
-                hintStyle: TextStyle(color: Colors.blueGrey, fontFamily: "Montserrat", fontSize: 14),
+                hintStyle: TextStyle(color: Colors.blueGrey, fontFamily: "Raleway", fontSize: 14),
                 filled: true,
                 fillColor: Colors.white70,
                 enabledBorder: OutlineInputBorder(
@@ -129,12 +166,19 @@ class _AddCredsState extends State<AddCreds> {
                    child: Container(
               width: 320,
               padding: EdgeInsets.all(2.0),
-              child: TextField(
-              autocorrect: true,
+              child: TextFormField(
+                controller: _passwordController,obscureText: true,
+                 validator: (value) {
+              if (value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
+              // autocorrect: true,
               decoration: InputDecoration(
                 hintText: 'Password',
                 prefixIcon: Icon(Icons.lock),
-                hintStyle: TextStyle(color: Colors.blueGrey, fontFamily: "Montserrat", fontSize: 14),
+                hintStyle: TextStyle(color: Colors.blueGrey, fontFamily: "Raleway", fontSize: 14),
                 filled: true,
                 fillColor: Colors.white70,
                 enabledBorder: OutlineInputBorder(
@@ -160,12 +204,19 @@ class _AddCredsState extends State<AddCreds> {
 
               
               padding: EdgeInsets.all(2.0),
-              child: TextField(
-              autocorrect: true,
+              child: TextFormField(
+                controller: _conf_passController, obscureText: true,
+                 validator: (value) {
+              if (value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
+              // autocorrect: true,
               decoration: InputDecoration(
                 hintText: 'Confirm Password',
                 prefixIcon: Icon(Icons.vpn_key),
-                hintStyle: TextStyle(color: Colors.blueGrey, fontFamily: "Montserrat", fontSize: 14),
+                hintStyle: TextStyle(color: Colors.blueGrey, fontFamily: "Raleway", fontSize: 14),
                 filled: true,
                 fillColor: Colors.white70,
                 
@@ -189,11 +240,9 @@ class _AddCredsState extends State<AddCreds> {
                     padding: const EdgeInsets.only(top: 20),
                     child: GestureDetector(
                       onTap: (() => { 
-                        Navigator.push(
-                            context,
-                          // you change it to OTP() view for IOS version
-                          MaterialPageRoute(builder: (context) => AddInfo()),
-                       )}),
+                        _performLogin(),
+                        
+                        }),
                           child: Container(
                           alignment: Alignment.center,
                           width : 180, 
@@ -206,7 +255,7 @@ class _AddCredsState extends State<AddCreds> {
 
                           child: Text("Next", style : TextStyle(
                             color : Colors.white, 
-                            fontFamily: "Montserrat", 
+                            fontFamily: "Raleway", 
                             fontWeight: FontWeight.bold, 
                             fontSize: 16, 
                             letterSpacing: 0
@@ -222,6 +271,7 @@ class _AddCredsState extends State<AddCreds> {
                 
 
               ),
+              )
 
             ),
           )

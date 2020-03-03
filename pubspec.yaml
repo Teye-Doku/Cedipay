@@ -26,6 +26,7 @@ dependencies:
   flutter_statusbarcolor:
   flutter_icons:
   pin_view:
+  flutter_holo_date_picker:
 
 dev_dependencies:
   flutter_test:
@@ -79,6 +80,10 @@ flutter:
     - family: Futura
       fonts:
         - asset: assets/LexendDeca-Regular.ttf
+
+    - family: Raleway
+      fonts:
+        - asset: assets/Raleway-Regular.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #

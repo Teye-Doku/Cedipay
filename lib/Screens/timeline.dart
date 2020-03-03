@@ -5,6 +5,7 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
 class Timeline extends StatefulWidget {
   @override
@@ -12,15 +13,19 @@ class Timeline extends StatefulWidget {
 }
 
 class _TimelineState extends State<Timeline> {
+  
+
   int currentTab = 0;
   
   @override
   Widget build(BuildContext context) {
 
+    FlutterStatusbarcolor.setStatusBarColor(Colors.redAccent);
+
     
     
    
-    return Scaffold(
+    return new Scaffold(
 
       
 

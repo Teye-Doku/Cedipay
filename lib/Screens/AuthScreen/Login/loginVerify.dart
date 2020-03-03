@@ -55,9 +55,9 @@ class _LoginVerifyState extends State<LoginVerify> {
 
                   Row (
                     children: <Widget>[
-                      Text("Kindly input the OTP number sent to your", style: TextStyle(
+                      Text("Kindly input the OTP number sent to your ", style: TextStyle(
                     color: Colors.white, 
-                    fontFamily: "Phone via SMS", 
+                    fontFamily: "Raleway", 
                     
 
                   ),
@@ -68,9 +68,9 @@ class _LoginVerifyState extends State<LoginVerify> {
 
                   Row(
                     children: <Widget>[
-                      Text("to access your account", style: TextStyle(
+                      Text("Phone via SMS to access your account", style: TextStyle(
                     color: Colors.white, 
-                    fontFamily: "Montserrat", 
+                    fontFamily: "Raleway", 
 
                   ),)
                     ]
@@ -131,7 +131,7 @@ class _LoginVerifyState extends State<LoginVerify> {
 									// style for the fields
 									fontSize: 40.0,
 									fontWeight: FontWeight.w500,
-                  fontFamily: 'Montserrat'
+                  fontFamily: "Raleway"
 								),
 								dashStyle: TextStyle (
 									// dash style
@@ -186,7 +186,7 @@ class _LoginVerifyState extends State<LoginVerify> {
                      mainAxisAlignment: MainAxisAlignment.end,
                      children: <Widget>[
                        Text("", style: TextStyle(
-                         fontFamily: "Montserrat", 
+                         fontFamily: "Raleway", 
                          fontSize: 11, 
                          color: Colors.blueGrey
                        ),)
@@ -216,7 +216,7 @@ class _LoginVerifyState extends State<LoginVerify> {
 
                           child: Text("Verify", style : TextStyle(
                             color : Colors.white, 
-                            fontFamily: "Montserrat", 
+                            fontFamily: "Raleway", 
                             fontWeight: FontWeight.bold, 
                             fontSize: 16, 
                             letterSpacing: 0
@@ -233,7 +233,7 @@ class _LoginVerifyState extends State<LoginVerify> {
                       children: <Widget> [
                         Text("Click to resend Again", style: TextStyle(
                           
-                          fontFamily: "Montserrat" , 
+                          fontFamily: "Raleway" , 
                           fontSize: 12
 
                         ),), 

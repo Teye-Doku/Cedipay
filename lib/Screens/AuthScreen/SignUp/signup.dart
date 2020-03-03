@@ -8,6 +8,29 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
+
+  final _phone = TextEditingController();
+
+  final _formKey = GlobalKey<FormState>();
+
+  void _performLogin() {
+      String fn = _phone.text; 
+      
+
+      print('login attempt: $fn ');
+
+      if (_formKey.currentState.validate()) {
+                  // If the form is valid, display a Snackbar.
+                  // Scaffold.of(context)
+                  //     .showSnackBar(SnackBar(content: Text('Processing Data')));
+                      Navigator.push(
+              context,
+              // you change it to OTP() view for IOS version
+              MaterialPageRoute(builder: (context) => LoginVerify()),
+                  );
+                }
+
+    }
   @override
  Widget build(BuildContext context) {
     return Scaffold(
@@ -93,7 +116,9 @@ class _SignupState extends State<Signup> {
 
               ),
 
-              child:Column(
+              child: Form(
+                 key: _formKey,
+                child:Column(
 
                 children: <Widget>[
 
@@ -103,7 +128,17 @@ class _SignupState extends State<Signup> {
                    child: Container(
               width: 320,
               padding: EdgeInsets.all(2.0),
-              child: TextField(
+              child: TextFormField(
+
+                controller: _phone,
+
+                validator: (value) {
+                  if(value.isEmpty) {
+                    return 'Please enter some text';
+                  }
+
+                  return null;
+                },
               autocorrect: true,
               decoration: InputDecoration(
                 hintText: 'Phone Number',
@@ -131,11 +166,8 @@ class _SignupState extends State<Signup> {
                     padding: const EdgeInsets.only(top: 20),
                     child: GestureDetector(
                       onTap: (() => { 
-                        Navigator.push(
-              context,
-              // you change it to OTP() view for IOS version
-              MaterialPageRoute(builder: (context) => LoginVerify()),
-                  )}),
+                        _performLogin(),
+                  }),
                           child: Container(
                           alignment: Alignment.center,
                           width : 180, 
@@ -163,6 +195,7 @@ class _SignupState extends State<Signup> {
 
                 
 
+              ),
               ),
 
             ),

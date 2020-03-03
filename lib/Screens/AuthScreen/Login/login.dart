@@ -7,15 +7,40 @@ import 'otp.dart';
 class LoginScreen extends StatefulWidget {
   @override
 
-  
   _LoginScreenState createState() => _LoginScreenState();
 }
 
 
 
 class _LoginScreenState extends State<LoginScreen> {
+
+  final _phoneController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  final _formKey = GlobalKey<FormState>();
+
+  
   @override
   Widget build(BuildContext context) {
+
+    void _performLogin() {
+      String phoneNum = _phoneController.text; 
+      String password = _passwordController.text;
+
+      print('login attempt: $phoneNum with $password');
+
+      if (_formKey.currentState.validate()) {
+                  // If the form is valid, display a Snackbar.
+                  // Scaffold.of(context)
+                  //     .showSnackBar(SnackBar(content: Text('Processing Data')));
+                      Navigator.push(
+              context,
+              // you change it to OTP() view for IOS version
+              MaterialPageRoute(builder: (context) => LoginVerify()),
+                  );
+                }
+
+    }
     return Scaffold(
       backgroundColor: Colors.white,
 
@@ -62,7 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: <Widget>[
                       Text("Provide your Phone number and Password", style: TextStyle(
                     color: Colors.white, 
-                    fontFamily: "Montserrat", 
+                    fontFamily: "Raleway", 
                     
 
                   ),
@@ -75,7 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: <Widget>[
                       Text("to access your account", style: TextStyle(
                     color: Colors.white, 
-                    fontFamily: "Montserrat", 
+                    fontFamily: "Raleway", 
 
                   ),)
                     ]
@@ -99,7 +124,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
               ),
 
-              child:Column(
+              child: Form(
+                key: _formKey,
+                child:Column(
 
                 children: <Widget>[
 
@@ -109,12 +136,20 @@ class _LoginScreenState extends State<LoginScreen> {
                    child: Container(
               width: 320,
               padding: EdgeInsets.all(2.0),
-              child: TextField(
-              autocorrect: true,
+              child: TextFormField(
+
+                validator: (value) {
+              if (value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
+                controller: _phoneController,
+              // autocorrect: true,
               decoration: InputDecoration(
                 hintText: 'Phone Number',
                 prefixIcon: Icon(Icons.phone_iphone),
-                hintStyle: TextStyle(color: Colors.blueGrey, fontFamily: "Montserrat", fontSize: 14),
+                hintStyle: TextStyle(color: Colors.blueGrey, fontFamily: "Raleway", fontSize: 14),
                 filled: true,
                 fillColor: Colors.white70,
                 enabledBorder: OutlineInputBorder(
@@ -140,12 +175,19 @@ class _LoginScreenState extends State<LoginScreen> {
 
               
               padding: EdgeInsets.all(2.0),
-              child: TextField(
-              autocorrect: true,
+              child: TextFormField(
+                controller: _passwordController, obscureText: true,
+                validator: (value) {
+              if (value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
+              // autocorrect: true,
               decoration: InputDecoration(
                 hintText: 'Password',
                 prefixIcon: Icon(Icons.lock),
-                hintStyle: TextStyle(color: Colors.blueGrey, fontFamily: "Montserrat", fontSize: 14),
+                hintStyle: TextStyle(color: Colors.blueGrey, fontFamily: "Raleway", fontSize: 14),
                 filled: true,
                 fillColor: Colors.white70,
                 
@@ -170,7 +212,7 @@ class _LoginScreenState extends State<LoginScreen> {
                      mainAxisAlignment: MainAxisAlignment.end,
                      children: <Widget>[
                        Text("Forget Password?", style: TextStyle(
-                         fontFamily: "Montserrat", 
+                         fontFamily: "Raleway", 
                          fontSize: 11, 
                          color: Colors.blueGrey
                        ),)
@@ -182,11 +224,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     padding: const EdgeInsets.only(top: 20),
                     child: GestureDetector(
                       onTap: (() => { 
-                        Navigator.push(
-              context,
-              // you change it to OTP() view for IOS version
-              MaterialPageRoute(builder: (context) => LoginVerify()),
-                  )}),
+                        
+                        _performLogin(),
+                        }),
                           child: Container(
                           alignment: Alignment.center,
                           width : 180, 
@@ -199,7 +239,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                           child: Text("Login", style : TextStyle(
                             color : Colors.white, 
-                            fontFamily: "Montserrat", 
+                            fontFamily: "Raleway", 
                             fontWeight: FontWeight.bold, 
                             fontSize: 16, 
                             letterSpacing: 0
@@ -216,7 +256,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       children: <Widget> [
                         Text("Don't have an account? ", style: TextStyle(
                           
-                          fontFamily: "Montserrat" , 
+                          fontFamily: "Raleway" , 
                           fontSize: 12
 
                         ),), 
@@ -231,7 +271,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           , child: 
                           Text('Register Now', style: TextStyle(
                             color: Colors.red, 
-                            fontFamily: "Montserrat" , 
+                            fontFamily: "Raleway" , 
                             fontSize: 12
                           ),
                           
@@ -245,6 +285,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 
 
+              ),
               ),
 
             ),
