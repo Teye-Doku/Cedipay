@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cedipay/Screens/AuthScreen/SignUp/Addcreds.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +10,102 @@ class LoginVerify extends StatefulWidget {
   _LoginVerifyState createState() => _LoginVerifyState();
 }
 
+
 class _LoginVerifyState extends State<LoginVerify> {
+
+  bool _hideResendButton = true ;
+
+  Timer _timer;
+  int _start = 10;
+
+  void startTimer() {
+     const oneSec = const Duration(seconds: 1);
+      _timer = new Timer.periodic(
+    oneSec,
+    (Timer timer) => setState(
+      () {
+        if (_start < 1) {
+          timer.cancel();
+          setState(() {
+            _hideResendButton = !_hideResendButton ;
+          });
+        } else {
+          _start = _start - 1;
+        }
+      },
+    ),
+  );
+}
+
+get _counter {
+
+  return 
+  Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text("0 : $_start" , style: TextStyle(
+                fontFamily: "Montserrat", 
+                fontSize : 25, 
+                fontWeight: FontWeight.bold
+
+
+              ),),
+
+                  Text("secs", style: TextStyle(
+                    fontFamily: "Montserrat"
+                  ),)
+                ],
+
+              );
+
+
+}
+
+
+get _getResendButton {
+    return new InkWell(
+      child: new Container(
+        height: 35,
+        width: 120,
+        decoration: BoxDecoration(
+            color: Colors.black,
+            shape: BoxShape.rectangle,
+            borderRadius: BorderRadius.circular(32)),
+        alignment: Alignment.center,
+        child: new Text(
+          "Resend OTP",
+          style:
+              new TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontFamily: 'Montserrat'),
+        ),
+      ),
+      onTap: () {
+
+        // setState(() {
+        //   _start = 30;
+
+        // });
+
+        // do a .then promise function to set the _start to 10 seconds
+        // then you start the startTimer() function;
+
+        //  startTimer();
+        
+        // Resend you OTP via API or anything
+      },
+    );
+  }
+
+@override
+void initState() {
+  startTimer();
+  
+  super.initState();
+
+  
+  
+  
+}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,20 +178,20 @@ class _LoginVerifyState extends State<LoginVerify> {
             ),
           ),
 
-          Padding(
-            padding: EdgeInsets.only(top: 35, left: 15),
+          // Padding(
+          //   padding: EdgeInsets.only(top: 35, left: 15),
            
               
              
-                child: GestureDetector(
-                  onTap: () => {
+          //       child: GestureDetector(
+          //         onTap: () => {
 
-                  },
-                  child: Icon(Icons.arrow_back_ios, color: Colors.white,)
-                  )
+          //         },
+          //         child: Icon(Icons.arrow_back_ios, color: Colors.white,)
+          //         )
                
               
-          ),
+          // ),
 
           SingleChildScrollView(
                       child: Container(
@@ -116,7 +213,27 @@ class _LoginVerifyState extends State<LoginVerify> {
 
               
 
-              SizedBox(height: 100),
+              SizedBox(height: 20),
+
+              _hideResendButton ? _counter : _getResendButton,
+
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   children: <Widget>[
+              //     Text("0 : $_start" , style: TextStyle(
+              //   fontFamily: "Montserrat", 
+              //   fontSize : 25, 
+              //   fontWeight: FontWeight.bold
+
+
+              // ),),
+
+              //     Text("secs", style: TextStyle(
+              //       fontFamily: "Montserrat"
+              //     ),)
+              //   ],
+
+              // ),
 
              Container(
                width: 300,
@@ -244,7 +361,8 @@ class _LoginVerifyState extends State<LoginVerify> {
                         // ),)
                       ]
                     ),
-                  )
+                  ),
+                  
                 ],
 
                 
@@ -262,4 +380,12 @@ class _LoginVerifyState extends State<LoginVerify> {
 
     );
   }
+
+  @override
+void dispose() {
+  _timer.cancel();
+  super.dispose();
+}
+
+
 }

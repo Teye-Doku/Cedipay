@@ -5,7 +5,7 @@ import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
 import 'Screens/AuthScreen/Login/login.dart';
 import 'Screens/AuthScreen/SignUp/dob.dart';
-import 'Screens/home.dart';
+import 'Screens/Main/home.dart';
 
 import 'dart:async';
 

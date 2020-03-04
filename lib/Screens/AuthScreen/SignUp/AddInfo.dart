@@ -1,5 +1,5 @@
-import 'package:cedipay/Screens/home.dart';
-import 'package:cedipay/Screens/timeline.dart';
+import 'package:cedipay/Screens/Main/home.dart';
+import 'package:cedipay/Screens/Main/timeline.dart';
 import 'package:flutter/material.dart';
 
 // datepicker

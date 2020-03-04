@@ -1,9 +1,12 @@
 
-import 'package:cedipay/Screens/activities.dart';
-import 'package:cedipay/Screens/receive.dart';
-import 'package:cedipay/Screens/scanPay.dart';
-import 'package:cedipay/Screens/timeline.dart';
+import 'package:cedipay/Screens/Subs/activities.dart';
+import 'package:cedipay/Screens/Main/receive.dart';
+import 'package:cedipay/Screens/Main/scanPay.dart';
+import 'package:cedipay/Screens/Main/timeline.dart';
 import 'package:flutter/material.dart';
+
+import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
+
 
 
 class Home extends StatefulWidget {
@@ -32,6 +35,9 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+
+     FlutterStatusbarcolor.setStatusBarColor(Colors.redAccent);
+
     return Scaffold(
 
       backgroundColor: Colors.white,

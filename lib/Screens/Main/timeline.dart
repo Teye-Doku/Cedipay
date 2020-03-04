@@ -1,4 +1,4 @@
-import 'package:cedipay/Screens/activities.dart';
+import 'package:cedipay/Screens/Subs/activities.dart';
 import 'package:cedipay/widgets/exclusive_carousel.dart';
 import 'package:cedipay/widgets/merchants_carousel.dart';
 import 'package:flutter_icons/flutter_icons.dart';
@@ -20,7 +20,7 @@ class _TimelineState extends State<Timeline> {
   @override
   Widget build(BuildContext context) {
 
-    FlutterStatusbarcolor.setStatusBarColor(Colors.redAccent);
+    
 
     
     
